@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="img-wallet">
-    <img src="../public/Yellow Cartoon Crypto Wallet.H03.2k.png" alt="Wallet">
+    <img src="../public/Yellow Cartoon Crypto Wallet.H03.2k.svg" alt="Wallet">
   </div>
 </template>
 
@@ -51,7 +51,7 @@
 
 .img-wallet {
   position: absolute;
-  top: 50%;
+  top: 410px;
   left: 50%;
   width: 410px;
   transform: translate(-55%, -45%)

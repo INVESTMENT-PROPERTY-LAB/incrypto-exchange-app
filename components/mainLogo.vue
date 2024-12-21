@@ -2,7 +2,7 @@
   <div class="logo">
     <div>
       <span class="logo__bold">IN</span>
-      <span>CRIPTO</span>
+      <span>CRYPTO</span>
     </div>
     <img src="../public/logo.svg" alt="Logo">
   </div>
