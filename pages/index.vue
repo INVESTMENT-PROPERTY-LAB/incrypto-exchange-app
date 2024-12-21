@@ -51,7 +51,9 @@
 
 .img-wallet {
   position: absolute;
-  top: 324px;
-  right: 37px;
+  top: 50%;
+  left: 50%;
+  width: 410px;
+  transform: translate(-55%, -45%)
 }
 </style>
