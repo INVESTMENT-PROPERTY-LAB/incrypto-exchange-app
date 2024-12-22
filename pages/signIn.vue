@@ -1,19 +1,19 @@
 <template>
   <div class="wrapper">
-    <div class="container">
-      <div class="block-welcome">
-        <h2 class="block-welcome__title">Welcome back to</h2>
+    <div>
+      <div class="block">
+        <h2 class="block-welcome__title textTitle">Welcome back to</h2>
         <MainLogo />
-        <p class="block-welcome__subtitle">
+        <p class="block-welcome__subtitle textSubtitle">
           Choose your method to sign in:
         </p>
-        <div style="display: flex;justify-content: center; gap: 20px; color: #fff; margin-bottom: 50px;">
+        <div class="block-messengers">
           <img src="@/public/icons/messengers/instagram.svg" alt="instagram">
           <img src="@/public/icons/messengers/whatsapp.svg" alt="whatsapp">
           <img src="@/public/icons/messengers/telegram.svg" alt="telegram">
           <img src="@/public/icons/messengers/facebook.svg" alt="facebook">
         </div>
-        <p>
+        <p class="block-or">
           Or
         </p>
       </div>
@@ -25,27 +25,28 @@
 </template>
 
 <style lang="scss" scoped>
-.container {
-  padding: 42px 0 34px 0;
-}
 
-.block-welcome {
+.block {
   text-align: center;
-  margin-top: 230px;
-  margin-bottom: 41px;
   color: #fff;
-
-  &__title {
-    font-size: 26px;
-    font-weight: bold;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
-    margin-bottom: 16px;
+  
+  &-welcome__title {
+    margin: 190px 0 16px 0;
   }
 
-  &__subtitle {
-    font-size: 18px;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+  &-welcome__subtitle {
     margin: 153px 0 16px 0;
+  }
+
+  &-messengers {
+    display: flex;
+    justify-content: center;
+    gap: 20px; color: #fff;
+    margin-bottom: 50px;
+  }
+
+  &-or {
+    margin-bottom: 60px;
   }
 }
 </style>

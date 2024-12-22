@@ -4,8 +4,8 @@
       <div class="container">
         <MainLogo />
         <div class="block-welcome">
-          <h2 class="block-welcome__title">Welcome</h2>
-          <p class="block-welcome__subtitle">
+          <h2 class="textTitle">Welcome</h2>
+          <p class="textSubtitle">
             To international Exchange app!
           </p>
         </div>
@@ -33,20 +33,6 @@
   text-align: center;
   margin-top: 91px;
   margin-bottom: 468px;
-
-  &__title {
-    color: #fff;
-    font-size: 26px;
-    font-weight: bold;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
-  }
-
-  &__subtitle {
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
-  }
 }
 
 .img-wallet {

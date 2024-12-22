@@ -3,17 +3,55 @@
     <div class="container">
       <MainLogo />
       <div class="block-welcome">
-        <h2 class="block-welcome__title">Enter your real name </h2>
+        <h2 class="textTitle">Enter your real name </h2>
       </div>
-      <form>
-        <div >
-          <input class="input" type="text" placeholder="First name">
-          <input type="text" placeholder="Last name">
+      <form class="formName">
+        <div class="formName__block-input">
+          <input class="inputName" type="text" placeholder="First name">
+          <input class="inputName" type="text" placeholder="Last name">
         </div>
+        <div class="block-text">
+          <p class="textSubtitle block-text__deac" >
+            You can use exchange service with false data, but if you wanting more external services like:
+          </p>
+          <div class="block-text__list">
+            <div class="textSubtitle block-list">
+              <div class="block-list__item">
+                <div class="block-list__item-dot"></div>
+                <span class="block-list__item-text">adding banks account</span>
+              </div>
+              <div class="block-list__item">
+                <div class="block-list__item-dot"></div>
+                <span class="block-list__item-text">exchange in two clicks</span>
+              </div>
+              <div class="block-list__item">
+                <div class="block-list__item-dot"></div>
+                <span class="block-list__item-text">crypto investments portfolio</span>
+              </div>
+              <div class="block-list__item">
+                <div class="block-list__item-dot"></div>
+                <span class="block-list__item-text">discounts for all of operations</span>
+              </div>
+              <div class="block-list__item">
+                <div class="block-list__item-dot"></div>
+                <span class="block-list__item-text">and more - you need to do KYC!</span>
+              </div>
+            </div>
+          </div>
+          <div class="block-checkbox">
+            <input class="block-checkbox__item" type="checkbox" id="checkbox" >
+            <label class="block-checkbox__text" for="checkbox">
+              I certify that I am 18 years of age or older, 
+              and I agree to the <strong>User Agreement</strong>  and <strong>Privacy Policy</strong>.
+            </label>
+          </div>
+          <div style="justify-items: center; margin-top: 10px;">
+            <p>Already have an account?</p>
+          </div>
+          <img class="block-text__img" src="@/public/20-Shield.svg" alt="Иконка">
+        </div>
+        <MainBtn>Next</MainBtn>
       </form>
-      <NuxtLink to="/signIn">
-        <MainBtn>Create account</MainBtn>
-      </NuxtLink>
     </div>
   </div>
 </template>
@@ -25,16 +63,78 @@
 
 .block-welcome {
   text-align: center;
-  margin-top: 91px;
+  margin: 91px 0 70px 0;
+}
 
-  &__title {
-    color: #fff;
-    font-size: 26px;
-    font-weight: bold;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+.formName {
+  &__block-input {
+    display: flex;
+    justify-content: space-between;
+    gap: 23px;
+    margin-bottom: 24px;
   }
 }
-.input {
 
+.inputName {
+  width: 100%;
+  padding: 10px 20px 18px 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000;
+}
+
+.block-text {
+  position: relative;
+  margin-bottom: 29px;
+
+ &__deac {
+  font-weight: 500;
+ }
+
+ &__list {
+  display: flex;
+ }
+
+ &__img {
+  position: absolute;
+  width: 116px;
+  height: 116px;
+  top: 102px;
+  left: 230px;
+ }
+}
+
+.block-list {
+  font-size: 14px;
+  margin-top: 30px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &-dot {
+      width: 5px;
+      height: 5px;
+      margin-right: 5px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+    &-text {
+      font-weight: 500
+    }
+  }
+}
+
+.block-checkbox {
+  margin-top: 24px;
+  display: flex;
+
+  &__item {
+    margin: 3px 10px auto 0;
+  }
+  
+  &__text {
+    font-size: 12px;
+  }
 }
 </style>
