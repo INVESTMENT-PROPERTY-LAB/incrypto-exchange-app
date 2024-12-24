@@ -1,43 +1,49 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ['~/styles/main.scss'],
-  modules: [
-    '@vite-pwa/nuxt'
-  ],
-  pwa: {
-    manifest: {
-      name: 'iNCRYPTO',
-      short_name: 'iNC',
-      description: 'Тест описания',
-      icons: [
-        {
-          src: 'icons/icon_64x64.svg',
-          sizes: '64x64',
-          type: 'image/svg/png'
+  css: ['@/styles/main.scss'],
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: "modern",
         },
-        {
-          src: 'icons/icon_144x144.svg',
-          sizes: '144x144',
-          type: 'image/svg/png'
-        },
-        {
-          src: 'icons/icon_192x192.svg',
-          sizes: '192x192',
-          type: 'image/svg/png'
-        },
-        {
-          src: 'icons/icon_512x512.svg',
-          sizes: '512x512',
-          type: 'image/svg/png'
-        },
-      ]
-    },
-    workbox: {
-      navigateFallback: '/'
-    },
-    devOptions: {
-      enabled: true,
-      type: 'module'
+      }
     }
   },
+  
+  // Подключение модуля PWA
+  modules: ['@vite-pwa/nuxt'],
+
+  pwa: {
+    manifest: {
+      name: 'Nuxt 3 PWA App',
+      short_name: 'NuxtPWA',
+      description: 'Пример PWA-приложения на Nuxt 3',
+      theme_color: '#4a90e2',
+      background_color: '#ffffff',
+      display: 'standalone',
+      start_url: '/',
+      icons: [
+        {
+          src: '/public/Mask.png',
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          src: '/public/Mask.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+      ],
+    },
+    workbox: {
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+    },
+    devOptions: {
+      enabled: true, // Включить в режиме разработки
+    },
+  },
+
+  compatibilityDate: '2024-12-22',
 })

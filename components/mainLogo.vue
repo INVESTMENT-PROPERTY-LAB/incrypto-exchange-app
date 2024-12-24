@@ -9,7 +9,7 @@
 </template>
 
 <style scoped lang="scss">
-@import '../styles/base/vars';
+@use '../styles/base/vars.scss' as *;
 
 .logo {
   display: flex;
