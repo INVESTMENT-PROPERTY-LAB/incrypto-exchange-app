@@ -1,6 +1,13 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   css: ['@/styles/main.scss'],
+
+  devServer: {
+    https: {
+      key: 'localhost-key.pem',
+      cert: 'localhost.pem'
+    },
+    
+  },
 
   vite: {
     css: {
@@ -11,7 +18,7 @@ export default defineNuxtConfig({
       }
     }
   },
-  
+
   // Подключение модуля PWA
   modules: ['@vite-pwa/nuxt'],
 
@@ -24,24 +31,53 @@ export default defineNuxtConfig({
       background_color: '#ffffff',
       display: 'standalone',
       start_url: '/',
+      
       icons: [
         {
-          src: '/public/Mask.png',
-          sizes: '192x192',
+          src: 'icons/qwe64.png',
+          sizes: '64x64',
           type: 'image/png',
+          purpose: 'any'
         },
         {
-          src: '/public/Mask.png',
+          src: 'icons/qwe144.png',
+          sizes: '144x144',
+          type: 'image/png',
+          purpose: 'any'
+        },
+        {
+          src: 'icons/qwe192.png',
+          sizes: '192x192',
+          type: 'image/png',
+          purpose: 'any'
+        },
+        {
+          src: 'icons/qwe512.png',
           sizes: '512x512',
           type: 'image/png',
+          purpose: 'any'
         },
       ],
-    },
-    workbox: {
-      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+      screenshots: [
+        {
+          src: 'screenshots/qweqwe.png',
+          sizes: '377x759',
+          type: 'image/png',
+          form_factor: 'narrow',
+          label: 'qwe'
+        },
+        {
+          src: 'screenshots/awdaawd.png',
+          sizes: '1919x865',
+          form_factor: 'wide',
+          type: 'image/png',
+          label: 'tythfdthdf'
+        },
+
+      ],
     },
     devOptions: {
-      enabled: true, // Включить в режиме разработки
+      enabled: true,
     },
   },
 
