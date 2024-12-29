@@ -5,10 +5,27 @@
       <div class="block-welcome">
         <h2 class="textTitle">Enter your real name </h2>
       </div>
-      <form class="formName">
+      <form class="formName" @submit.prevent="handleSubmit">
         <div class="formName__block-input">
-          <input class="inputName" type="text" placeholder="First name">
-          <input class="inputName" type="text" placeholder="Last name">
+          <div>
+            <input
+              class="inputName" type="text" placeholder="First name"
+              v-model="form.firstName"
+            />
+
+            <span style="color: red;" v-if="$v.firstName.$error">
+              {{ $v.firstName.$errors[0].$message }}
+            </span>
+          </div>
+          <div>
+            <input
+              class="inputName" type="text" placeholder="Last name" 
+              v-model="form.lastName"
+            />
+            <span style="color: red;" v-if="$v.lastName.$error">
+              {{ $v.lastName.$errors[0].$message }}
+            </span>
+          </div>
         </div>
         <div class="block-text">
           <p class="textSubtitle block-text__deac" >
@@ -39,22 +56,67 @@
             </div>
           </div>
           <div class="block-checkbox">
-            <input class="block-checkbox__item" type="checkbox" id="checkbox" >
+            <input class="block-checkbox__item" type="checkbox" v-model="form.agreement" id="checkbox" >
             <label class="block-checkbox__text" for="checkbox">
               I certify that I am 18 years of age or older, 
               and I agree to the <strong>User Agreement</strong>  and <strong>Privacy Policy</strong>.
             </label>
           </div>
+
+          <span style="color: red;" v-if="$v.agreement.$error">
+            {{ $v.agreement.$errors[0].$message }}
+          </span>
           <div style="justify-items: center; margin-top: 10px;">
             <p>Already have an account?</p>
           </div>
           <img class="block-text__img" src="@/public/20-Shield.svg" alt="Иконка">
         </div>
-        <MainBtn>Next</MainBtn>
+        <MainBtn type="submit">Next</MainBtn>
       </form>
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { reactive } from 'vue'
+import { useVuelidate } from '@vuelidate/core'
+import { required, helpers } from '@vuelidate/validators'
+
+const form = reactive({
+  firstName: '',
+  lastName: '',
+  agreement: false
+})
+
+const rules = computed(() => ({
+  firstName: {
+    required: helpers.withMessage('Enter first name', required),
+  },
+  lastName: {
+    required: helpers.withMessage('Enter last name', required),
+  },
+  agreement: {
+    required: helpers.withMessage('Required field', (value) => value === true)
+  }
+}))
+
+const $v = useVuelidate(rules, form)
+
+const handleSubmit = async () => {
+ 
+  await $v.value.$validate()
+  if ($v.value.$invalid) {
+    console.log(2, 'не прошел форму');
+    return
+  } 
+  console.log(1, 'GHjitk ');
+  
+
+  // await api.post('url', form)
+  
+}
+
+</script>
 
 <style lang="scss" scoped>
 .container {
@@ -80,6 +142,7 @@
   padding: 10px 20px 18px 20px;
   border-radius: 10px;
   background-color: #fff;
+  border: 1px solid #ddd;
   color: #000;
 }
 

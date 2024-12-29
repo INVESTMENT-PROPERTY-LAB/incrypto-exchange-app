@@ -1,10 +1,25 @@
 <template>
   <div class="block">
-    <button class="block__btn">
+    <button
+      class="block__btn"
+      :type="type"
+      @click="$emit('onClick')"
+    >
       <slot />
     </button>
   </div>
 </template>
+
+<script lang="ts" setup>
+defineProps({
+  type: {
+    type: String,
+    default: 'button'
+  },
+})
+
+defineEmits(['onClick'])
+</script>
 
 <style scoped lang="scss">
 .block {

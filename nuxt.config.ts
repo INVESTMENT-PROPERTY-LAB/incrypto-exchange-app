@@ -24,12 +24,12 @@ export default defineNuxtConfig({
 
   pwa: {
     manifest: {
-      name: 'Nuxt 3 PWA App',
-      short_name: 'NuxtPWA',
-      description: 'Пример PWA-приложения на Nuxt 3',
+      name: 'iNCRYPTO',
+      short_name: 'iNC',
+      description: 'Welcome To international Exchange app!',
       theme_color: '#4a90e2',
       background_color: '#ffffff',
-      display: 'standalone',
+      display: 'fullscreen',
       start_url: '/',
       
       icons: [
@@ -76,6 +76,7 @@ export default defineNuxtConfig({
 
       ],
     },
+    
     devOptions: {
       enabled: true,
     },

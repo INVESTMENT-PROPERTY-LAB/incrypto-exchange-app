@@ -42,4 +42,5 @@
   width: 410px;
   transform: translate(-55%, -45%)
 }
+
 </style>
