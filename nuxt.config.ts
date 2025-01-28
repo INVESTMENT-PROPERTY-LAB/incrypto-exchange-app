@@ -22,7 +22,17 @@ export default defineNuxtConfig({
   // Подключение модуля PWA
   modules: ['@vite-pwa/nuxt'],
 
+  
+
   pwa: {
+
+    workbox: {
+      // Укажите правильные пути для Workbox
+      globDirectory: '.output/public',
+      globPatterns: ['**/*.{js,css,html,png,svg,json}'], // Используйте более общий паттерн
+      globIgnores: ['node_modules/**/*', 'sw.js', 'workbox-*.js'],
+    },
+
     manifest: {
       name: 'iNCRYPTO',
       short_name: 'iNC',

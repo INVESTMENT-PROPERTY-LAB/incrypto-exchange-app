@@ -71,6 +71,12 @@
           </div>
           <img class="block-text__img" src="@/public/20-Shield.svg" alt="Иконка">
         </div>
+        <PinPopup
+          :title="'Enter your PIN'"
+          :isVisible="isPopupVisible"
+          @close="isPopupVisible = false"
+          @pin-completed="onPinCompleted"
+        />
         <MainBtn type="submit">Next</MainBtn>
       </form>
     </div>
@@ -81,6 +87,9 @@
 import { reactive } from 'vue'
 import { useVuelidate } from '@vuelidate/core'
 import { required, helpers } from '@vuelidate/validators'
+import { ref } from "vue";
+import PinPopup from "@/components/pinInput.vue";
+const router = useRouter()
 
 const form = reactive({
   firstName: '',
@@ -106,15 +115,20 @@ const handleSubmit = async () => {
  
   await $v.value.$validate()
   if ($v.value.$invalid) {
-    console.log(2, 'не прошел форму');
+    console.log(2, 'не прошел форму')
     return
-  } 
-  console.log(1, 'GHjitk ');
-  
-
-  // await api.post('url', form)
-  
+  }
+  isPopupVisible.value = true
 }
+
+const isPopupVisible = ref(false);
+
+const onPinCompleted = (pin: string) => {
+  console.log("PIN-код введён:", pin)
+  router.push('/mainDashboard')
+  // window.location.href = "/"
+}
+
 
 </script>
 
