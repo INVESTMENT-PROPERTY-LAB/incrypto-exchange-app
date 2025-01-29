@@ -1,18 +1,16 @@
 <template>
   <div class="container">
-    <!-- Верхний ряд -->
     <div class="row">
-      <div class="button">
+      <NuxtLink class="button" to="/marketPrice">
         <img src="../public/icons/iconDashboard/Price LOGO.svg" alt="Market Prices" />
         <p>Market Prices</p>
-      </div>
+      </NuxtLink>
       <div class="button">
         <img src="../public/icons/iconDashboard/Alert LOGO.svg" alt="Alerts" />
         <p>Alerts</p>
       </div>
     </div>
 
-    <!-- Центральная кнопка (Exchange) -->
     <div class="row highlight">
       <div class="button large">
         <img src="../public/icons/iconDashboard/Group 13.svg" alt="Exchange" />
@@ -20,7 +18,6 @@
       </div>
     </div>
 
-    <!-- Нижний ряд -->
     <div class="row">
       <div class="button">
         <img src="../public/icons/iconDashboard/Wallet LOGO.svg" alt="My Accounts" />
@@ -35,26 +32,22 @@
 </template>
 
 <style scoped lang="scss">
-/* Общий контейнер */
 .container {
   width: 350px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  // background: #8e9295;
   padding: 20px;
   border-radius: 10px;
 }
 
-/* Ряды кнопок */
 .row {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
-/* Кнопка */
 .button {
   display: flex;
   flex-direction: column;
@@ -85,7 +78,6 @@
   }
 }
 
-/* Центральная кнопка (Exchange) */
 .highlight .button.large {
   background: #f5c22b;
   color: #000;
@@ -98,7 +90,6 @@
   height: 50px;
 }
 
-/* Настройка нижнего ряда */
 .button.large:hover {
   transform: scale(1.05);
 }

@@ -1,17 +1,17 @@
 <template>
   <div class="wrapper">
-    <div>
-      <div class="block">
+    <div class="container-wrapper">
+      <div class="block" v-if="accountCreatedInfo">
         <MainLogo />
         <p class="block-welcome__subtitle textSubtitle">
           <img src="../public/Сгруппировать 3.svg" alt="Success">
         </p>
-        <p v-if="accountCreatedInfo" class="block-or textTitle">
+        <p class="block-or textTitle">
           Account created
         </p>
       </div>
-      {{ accountCreatedInfo }}
-      <div>
+      
+      <div class="block-menu">
         <MainMenu />
       </div>
     </div>
@@ -22,9 +22,14 @@
 import { ref } from "vue"
 
 const accountCreatedInfo = ref<boolean>(true)
+
+setTimeout(() => accountCreatedInfo.value = false, 3000)
 </script>
 
 <style lang="scss" scoped>
+.container-wrapper {
+  position: relative;
+}
 
 .block {
   text-align: center;
@@ -48,5 +53,10 @@ const accountCreatedInfo = ref<boolean>(true)
   &-or {
     margin-bottom: 60px;
   }
+}
+.block-menu {
+  position: absolute;
+  top: 495px;
+  width: 100%;
 }
 </style>
