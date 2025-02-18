@@ -30,7 +30,6 @@ setTimeout(() => accountCreatedInfo.value = false, 3000)
 .container-wrapper {
   position: relative;
 }
-
 .block {
   text-align: center;
   color: #fff;
