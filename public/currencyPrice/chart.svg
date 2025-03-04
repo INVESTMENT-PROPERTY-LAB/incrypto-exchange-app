@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="484.517" height="303" viewBox="0 0 484.517 303">
+  <g id="Сгруппировать_21" data-name="Сгруппировать 21" transform="translate(0.96 -11)">
+    <path id="Path_5" data-name="Path 5" d="M0,180.882S36.95,54.643,82.687,54.643s25.729,100.6,65.9,100.6S177.361,0,216.725,0s26.51,198.316,62.154,198.316,19.662-111.9,52.13-111.9S352.222,9.867,384.8,9.867s51.456,188.449,98.761,188.449" transform="translate(0 77.131)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Combined_Shape" data-name="Combined Shape" d="M8,19a4,4,0,0,1-4-4V13.2L0,10,4,6.8V4A4,4,0,0,1,8,0H58a4,4,0,0,1,4,4V15a4,4,0,0,1-4,4Z" transform="translate(252 111)" fill="#fff"/>
+    <text id="_6_390" data-name="$6,390" transform="translate(285 121)" fill="#4a4a4a" font-size="8" font-family="SegoeUI, Segoe UI" letter-spacing="0.2em"><tspan x="-15.648" y="0">$6,390</tspan></text>
+    <path id="Oval" d="M5,0A5,5,0,1,1,0,5,5,5,0,0,1,5,0Z" transform="translate(236 116)" fill="#fff"/>
+    <text id="Sun" transform="translate(70 307)" fill="#fff" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-9.979" y="0">Sun</tspan></text>
+    <text id="Mon" transform="translate(123.5 307)" fill="#46586d" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-12.299" y="0">Mon</tspan></text>
+    <text id="Tue" transform="translate(177 307)" fill="#fff" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-9.677" y="0">Tue</tspan></text>
+    <text id="Wed" transform="translate(230.5 311)" fill="#fff" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-12.041" y="0">Wed</tspan></text>
+    <text id="Thu" transform="translate(284 307)" fill="#fff" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-9.935" y="0">Thu</tspan></text>
+    <text id="Fri" transform="translate(338 307)" fill="#fff" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-6.469" y="0">Fri</tspan></text>
+    <text id="Sat" transform="translate(391 307)" fill="#fff" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-8.273" y="0">Sat</tspan></text>
+    <text id="_1H" data-name="1H" transform="translate(86.5 27)" fill="#fff" font-size="15" font-family="SegoeUI, Segoe UI"><tspan x="-9.368" y="0">1H</tspan></text>
+    <text id="_1D" data-name="1D" transform="translate(143.9 27)" fill="#fff" font-size="15" font-family="SegoeUI, Segoe UI"><tspan x="-9.302" y="0">1D</tspan></text>
+    <path id="_1W" data-name="1W" d="M0,0H47.5V2H0Z" transform="translate(177.8 44)" fill="#4a4a4a"/>
+    <text id="_1W-2" data-name="1W" transform="translate(201.3 30)" fill="#444a5a" font-size="15" font-family="SegoeUI, Segoe UI"><tspan x="-11.049" y="0">1W</tspan></text>
+    <text id="_1M" data-name="1M" transform="translate(258.7 27)" fill="#fff" font-size="15" font-family="SegoeUI, Segoe UI"><tspan x="-10.778" y="0">1M</tspan></text>
+    <text id="_1Y" data-name="1Y" transform="translate(316.1 27)" fill="#fff" font-size="15" font-family="SegoeUI, Segoe UI"><tspan x="-8.188" y="0">1Y</tspan></text>
+    <text id="ALL" transform="translate(373.5 27)" fill="#fff" font-size="15" font-family="SegoeUI, Segoe UI"><tspan x="-11.898" y="0">ALL</tspan></text>
+  </g>
+</svg>

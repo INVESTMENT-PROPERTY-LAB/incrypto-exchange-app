@@ -1,22 +1,22 @@
 <template>
-  <div class="crypto-item">
+  <router-link :to="{ path: '/currencyPrice', query: { symbol: crypto.symbol } }" class="crypto-item">
     <div class="crypto-item__symbol">
       <img class="crypto-item__img" :src="crypto.icon" :alt="crypto.symbol">
     </div>
     <div class="crypto-item__details">
-      <div style="display: flex; flex-direction: column; ">
-        <p class="crypto-item__name"> {{ crypto.symbol }}</p>
+      <div style="display: flex; flex-direction: column;">
+        <p class="crypto-item__name">{{ crypto.symbol }}</p>
         <p class="crypto-item__desc">{{ crypto.name }}</p>
       </div>
       <img :src="crypto.chart" alt="Chart">
-      <div style="display: flex; flex-direction: column; ">
+      <div style="display: flex; flex-direction: column;">
         <span class="crypto-item__change" :class="isTrendUp ? 'crypto-item__change--down' : 'crypto-item__change--up'">
           {{ crypto.change }}%
         </span>
         <span class="crypto-item__price">{{ crypto.price }}</span>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script setup>
@@ -29,7 +29,7 @@ const props = defineProps({
   },
 });
 
-const isTrendUp = props.crypto.trend ?  '' : 'up';
+const isTrendUp = props.crypto.trend ? '' : 'up';
 </script>
 
 <style scoped lang="scss">

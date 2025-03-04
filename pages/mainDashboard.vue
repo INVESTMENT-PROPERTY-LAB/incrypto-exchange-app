@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
     <div class="container-wrapper">
+      <MainLogo />
       <div class="block" v-if="accountCreatedInfo">
-        <MainLogo />
         <p class="block-welcome__subtitle textSubtitle">
           <img src="../public/Сгруппировать 3.svg" alt="Success">
         </p>
