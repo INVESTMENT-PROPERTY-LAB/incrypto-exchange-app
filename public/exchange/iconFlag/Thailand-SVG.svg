@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="67" height="67" viewBox="0 0 67 67">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="Эллипс_14" data-name="Эллипс 14" cx="33.5" cy="33.5" r="33.5" transform="translate(0 0)" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.36" stop-color="#fdfdfd"/>
+      <stop offset="0.48" stop-color="#f6f6f6"/>
+      <stop offset="0.58" stop-color="#eaeaea"/>
+      <stop offset="0.65" stop-color="#d9d9d9"/>
+      <stop offset="0.71" stop-color="#c3c3c3"/>
+      <stop offset="0.77" stop-color="#a8a8a8"/>
+      <stop offset="0.82" stop-color="#878787"/>
+      <stop offset="0.87" stop-color="#626262"/>
+      <stop offset="0.91" stop-color="#373737"/>
+      <stop offset="0.95" stop-color="#090909"/>
+      <stop offset="0.96"/>
+    </radialGradient>
+  </defs>
+  <g id="Thailand-SVG" transform="translate(-0.003 -0.003)" style="isolation: isolate">
+    <g id="Layer_2" transform="translate(0.003 0.003)">
+      <g id="Layer_1-2" transform="translate(0 0)">
+        <g id="Thailand">
+          <g id="Сгруппировать_18" data-name="Сгруппировать 18" clip-path="url(#clip-path)">
+            <g id="Сгруппировать_17" data-name="Сгруппировать 17" transform="translate(-16.706 -0.003)">
+              <rect id="Прямоугольник_15" data-name="Прямоугольник 15" width="100.14" height="66.734" fill="#2d2a4a"/>
+              <rect id="Прямоугольник_16" data-name="Прямоугольник 16" width="100.14" height="11.148" fill="#a51931"/>
+              <rect id="Прямоугольник_17" data-name="Прямоугольник 17" width="100.14" height="11.148" transform="translate(0 11.148)" fill="#fff"/>
+              <rect id="Прямоугольник_18" data-name="Прямоугольник 18" width="100.14" height="11.148" transform="translate(0 44.438)" fill="#fff"/>
+              <rect id="Прямоугольник_19" data-name="Прямоугольник 19" width="100.14" height="11.148" transform="translate(0 55.586)" fill="#a51931"/>
+            </g>
+            <circle id="Эллипс_13" data-name="Эллипс 13" cx="33.5" cy="33.5" r="33.5" transform="translate(0 0)" opacity="0.3" fill="url(#radial-gradient)" style="mix-blend-mode: multiply;isolation: isolate"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

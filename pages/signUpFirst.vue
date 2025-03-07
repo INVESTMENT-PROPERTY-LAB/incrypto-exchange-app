@@ -90,6 +90,7 @@ import { required, helpers } from '@vuelidate/validators'
 import { ref } from "vue";
 import PinPopup from "@/components/pinInput.vue";
 const router = useRouter()
+const route = useRoute()
 
 const form = reactive({
   firstName: '',
@@ -124,12 +125,8 @@ const handleSubmit = async () => {
 const isPopupVisible = ref(false);
 
 const onPinCompleted = (pin: string) => {
-  console.log("PIN-код введён:", pin)
-  router.push('/mainDashboard')
-  // window.location.href = "/"
+  router.push({ path: '/mainDashboard', query: { from: route.fullPath } })
 }
-
-
 </script>
 
 <style lang="scss" scoped>

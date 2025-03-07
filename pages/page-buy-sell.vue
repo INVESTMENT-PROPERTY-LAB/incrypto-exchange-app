@@ -4,39 +4,44 @@
       <h1>{{ route.query.action }} {{ activeCurrency?.name }}</h1>
     </div>
     <div class="crypto-scroll__bar" style="color: #4A4A4A;" :class="{ 'crypto-scroll__bar--reverse': changeBuySell}">
-      <div class="crypto-scroll__bar-curr">
+      <div>
         <h3>Crypto Currency Amount</h3>
-        <ul class="crypto-scroll__list">
-          <li
-            class="crypto-scroll__item"
-            v-for="currency in cryptocurrencies"
-            :key="currency.symbol"
-            :class="{ active: currency.symbol === activeCurrency?.symbol }"
-            @click="setActiveCurrency(currency)"
-          >
-            <img class="crypto-scroll__img" :src="getCurrencyImage(currency.symbol)" alt="">
-            <div class="crypto-scroll__text">
-              {{ currency.symbol }}
-            </div>
-          </li>
-        </ul>
+        <input type="number">
+        <div class="crypto-scroll__bar-curr">
+          <ul class="crypto-scroll__list">
+            <li
+              class="crypto-scroll__item"
+              v-for="currency in cryptocurrencies"
+              :key="currency.symbol"
+              :class="{ active: currency.symbol === activeCurrency?.symbol }"
+              @click="setActiveCurrency(currency)"
+            >
+              <img class="crypto-scroll__img" :src="currency.icon" alt="">
+              <div class="crypto-scroll__text">
+                {{ currency.symbol }}
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="crypto-scroll__bar-lang">
+      <div>
         <h3>Currency Amount</h3>
-        <ul class="crypto-scroll__list">
-          <li
-            class="crypto-scroll__item"
-            v-for="currency in cryptocurrencies"
-            :key="currency.symbol"
-            :class="{ active: currency.symbol === activeCurrency?.symbol }"
-            @click="setActiveCurrency(currency)"
-          >
-            <img class="crypto-scroll__img" :src="getCurrencyImage(currency.symbol)" alt="">
-            <div class="crypto-scroll__text">
-              {{ currency.symbol }}
-            </div>
-          </li>
-        </ul>
+        <div class="crypto-scroll__bar-lang">
+          <ul class="crypto-scroll__list">
+            <li
+              class="crypto-scroll__item"
+              v-for="currency in buySell"
+              :key="currency.symbol"
+              :class="{ active: currency.symbol === CurrActiveAmount?.symbol }"
+              @click="setActiveCurrencyAmount(currency)"
+            >
+              <img class="crypto-scroll__img" :src="currency.icon" alt="">
+              <div class="crypto-scroll__text">
+                {{ currency.symbol }}
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     
@@ -59,7 +64,9 @@
   <div>
     <img class="crypto-nav__img" :src="chart" alt="">
     <div class="crypto-nav">
-      <MainBtn @click="onclickBuy" class="crypto-nav__buy">{{ route.query.action }}</MainBtn>
+      <NuxtLink style="width: 100%;" to="/mainDashboard">
+        <MainBtn @click="onclickBuy" class="crypto-nav__buy">{{ route.query.action }}</MainBtn>
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -69,11 +76,13 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { cryptocurrencies } from '@/mocksData/cryptocurrencies'
 import chart from "@/public/currencyPrice/chart.svg"
+import { buySell } from '@/mocksData/buySell';
 
 const route = useRoute()
 
 const activeCurrency = ref(null)
 const changeBuySell = ref(route.query.action === 'Sell')
+const CurrActiveAmount = ref(null)
 
 const getCurrencyImage = (symbol) => {
   const currencyData = cryptocurrencies.find(crypto => crypto.symbol === symbol)
@@ -82,6 +91,10 @@ const getCurrencyImage = (symbol) => {
 
 const setActiveCurrency = (symbol) => {
   activeCurrency.value = symbol
+}
+
+const setActiveCurrencyAmount = (symbol) => {
+  CurrActiveAmount.value = symbol
 }
 
 onMounted(() => {
@@ -110,18 +123,24 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     max-height: 200px;
-    overflow-y: auto;
     border-radius: 8px;
 
     &--reverse {
-      flex-direction: row-reverse;
+      flex-direction: column-reverse;
     }
+  }
+
+  &__bar-curr,
+  &__bar-lang {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 200px;
+    margin-right: 10px;
 
     &::-webkit-scrollbar {
       width: 0;
       height: 0;
     }
-
   }
 
   &__list {
@@ -137,9 +156,9 @@ onMounted(() => {
   }
 
   &__item {
-    width: 137px;
-    height: 64px;
-    padding: 11px 25px 16px 27px;
+    width: 87px;
+    height: 50px;
+    // padding: 10px 10px 20px 6px;
     border-radius: 6px;
     background: #fbfbfb;
     transition: background 0.3s;
@@ -157,7 +176,12 @@ onMounted(() => {
 
   &__text {
     margin: 0 0 10px 9px;
-    font-size: 22px;
+    font-size: 14px;
+  }
+
+  &__img {
+    width: 30px;
+    height: auto;
   }
 }
 

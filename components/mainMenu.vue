@@ -13,8 +13,10 @@
 
     <div class="row highlight">
       <div class="button large">
-        <img src="../public/icons/iconDashboard/Group 13.svg" alt="Exchange" />
-        <p>Exchange</p>
+        <NuxtLink to="/main-exchange">
+          <img src="../public/icons/iconDashboard/Group 13.svg" alt="Exchange" />
+          <p>Exchange</p>
+        </NuxtLink>
       </div>
     </div>
 

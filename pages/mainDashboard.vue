@@ -10,7 +10,6 @@
           Account created
         </p>
       </div>
-      
       <div class="block-menu">
         <MainMenu />
       </div>
@@ -19,27 +18,37 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue"
+import { ref } from "vue";
+import { useRoute } from "vue-router";
 
-const accountCreatedInfo = ref<boolean>(true)
+const route = useRoute();
+const accountCreatedInfo = ref<boolean>(false);
 
-setTimeout(() => accountCreatedInfo.value = false, 3000)
+onMounted(() => {
+  if (route.query.from === '/signUpFirst') {
+    accountCreatedInfo.value = true
+    setTimeout(() => {
+      accountCreatedInfo.value = false
+    }, 2000)
+  }
+})
 </script>
 
 <style lang="scss" scoped>
 .container-wrapper {
   position: relative;
+  margin-top: 74px;
 }
 .block {
   text-align: center;
   color: #fff;
   
   &-welcome__title {
-    margin: 190px 0 16px 0;
+    margin: 150px 0 16px 0;
   }
 
   &-welcome__subtitle {
-    margin: 153px 0 16px 0;
+    margin: 92px 0 16px 0;
   }
 
   &-messengers {
@@ -55,7 +64,7 @@ setTimeout(() => accountCreatedInfo.value = false, 3000)
 }
 .block-menu {
   position: absolute;
-  top: 495px;
+  top: 380px;
   width: 100%;
 }
 </style>
