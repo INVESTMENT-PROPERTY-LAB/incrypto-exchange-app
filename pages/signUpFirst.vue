@@ -125,7 +125,7 @@ const handleSubmit = async () => {
 const isPopupVisible = ref(false);
 
 const onPinCompleted = (pin: string) => {
-  router.push({ path: '/mainDashboard', query: { from: route.fullPath } })
+  router.push({ path: '/mainDashboard', query: { from: route.fullPath, firstName: form.firstName, lastName: form.lastName } })
 }
 </script>
 

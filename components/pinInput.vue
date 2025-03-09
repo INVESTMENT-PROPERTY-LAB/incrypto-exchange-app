@@ -4,10 +4,9 @@
     :class="{ 'popup-pin-input--visible': isAnimating }"
     v-if="isAnimating"
   >
-    <!-- Фон затемнения -->
+
     <div class="popup-pin-input__overlay" @click="closePopup"></div>
 
-    <!-- Контент попапа -->
     <div class="popup-pin-input__content">
       <h1 class="popup-pin-input__title">{{ title }}</h1>
       <div class="popup-pin-input__fields">
@@ -28,7 +27,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, defineProps, defineEmits, watch } from "vue";
+import { ref, defineProps, defineEmits, watch, nextTick } from "vue";
 
 // Пропсы
 const props = defineProps({
@@ -58,9 +57,13 @@ watch(
   (newValue) => {
     if (newValue) {
       isAnimating.value = true; // Показываем попап
+      nextTick(() => {
+        // Устанавливаем фокус на первое поле ввода после отрисовки
+        inputs.value[0]?.focus();
+      });
     } else {
-      // Ждём завершения анимации перед скрытием
-      setTimeout(() => (isAnimating.value = false), 300); // Должно совпадать с CSS `transition`
+      // Ждем завершения анимации перед скрытием
+      setTimeout(() => (isAnimating.value = false), 300); // Должно совпадать с CSS transition
     }
   },
 );
@@ -73,7 +76,7 @@ const closePopup = () => {
 // Обработка ввода
 const handleInput = (index: number, event: Event) => {
   const target = event.target as HTMLInputElement;
-  const onlyDigits = target.value.replace(/\D/g, "");
+  const onlyDigits = target.value.replace(/D/g, "");
   target.value = onlyDigits;
 
   pin.value[index] = target.value;
@@ -95,6 +98,7 @@ const handleKeydown = (event: KeyboardEvent, index: number) => {
   }
 };
 </script>
+
 
 <style lang="scss" scoped>
 .popup-pin-input {

@@ -1,8 +1,23 @@
 <template>
   <div class="wrapper">
     <div class="container-wrapper">
-      <MainLogo />
+      <div class="block" v-if="accountCreatedInfo === false && createdExchengeLoader === false && createdExchengeSuccessful === false">
+        <div class="block-header">
+          <img src="@/public/dashboard/burger.svg" alt="Burger">
+          <img src="@/public/logo.svg" alt="Logo">
+        </div>
+        <div class="block-body">
+          <h3 class="block-body__title">{{ route.query.firstName }} {{  route.query.lastName  }}</h3>
+          <img src="@/public/dashboard/iconProfile.svg" alt="Profile">
+          <p class="block-body__text">Your Account Balance</p>
+          <span class="block-body__number--dollar">$</span><span class="block-body__number">39,798.29</span>
+        </div>
+        <NuxtLink to="/signUpFirst">
+          <button class="block-btn">Log out</button>
+        </NuxtLink>
+      </div>
       <div class="block" v-if="accountCreatedInfo">
+        <MainLogo />
         <p class="block-welcome__subtitle textSubtitle">
           <img src="../public/Сгруппировать 3.svg" alt="Success">
         </p>
@@ -71,6 +86,39 @@ onMounted(() => {
 .block {
   text-align: center;
   color: #fff;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
+
+  &-body {
+    margin-bottom: 15px;
+
+    &__title {
+      margin-bottom: 30px;
+      letter-spacing: 3px;
+    }
+    &__text {
+      margin-top: 28px;
+    }
+    &__number {
+      font-size: 48px;
+
+      &--dollar {
+        font-size: 36px;
+      }
+    }
+  }
+
+  &-btn {
+    padding: 2px 37px 10px 37px;
+    border: solid 1px #fff;
+    border-radius: 50px;
+    font-size: 12px;
+  }
   
   &-welcome__title {
     margin: 150px 0 16px 0;
@@ -97,7 +145,7 @@ onMounted(() => {
 }
 .block-menu {
   position: absolute;
-  top: 380px;
+  top: 437px;
   width: 100%;
 }
 </style>
