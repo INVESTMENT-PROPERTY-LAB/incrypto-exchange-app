@@ -1,5 +1,5 @@
 <template>
-  <div class="crypto-scroll">
+  <div class="crypto-scroll" :class="{ 'crypto-scroll--reverse': changeBuySell}">
     <div class="crypto-scroll__header">
       <h1>{{ route.query.action }} {{ activeCurrency?.name }}</h1>
     </div>
@@ -120,6 +120,11 @@ onMounted(() => {
   padding: 49px 0 55px 0;
   margin-bottom: 100px;
 
+  &--reverse {
+    padding: 49px 0 0 0;
+    margin-bottom: -8px;
+  }
+
   &__header {
     text-align: center;
     margin-bottom: 1rem;
@@ -138,6 +143,7 @@ onMounted(() => {
 
     &--reverse {
       flex-direction: column-reverse;
+      margin-top: 188px;
     }
   }
 
@@ -280,7 +286,6 @@ onMounted(() => {
 
 .card-block {
   display: flex;
-  // justify-content: space-between;
   align-items: center;
   padding: 11px 0 24px 0;
   max-width: 261px;
