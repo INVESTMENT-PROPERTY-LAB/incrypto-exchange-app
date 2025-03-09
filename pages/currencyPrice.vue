@@ -131,6 +131,7 @@ onMounted(() => {
     background: #fbfbfb;
     transition: background 0.3s;
     color: #4A4A4A;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
