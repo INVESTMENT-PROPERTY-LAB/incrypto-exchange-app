@@ -22,8 +22,10 @@
 
     <div class="row">
       <div class="button">
-        <img src="../public/icons/iconDashboard/Wallet LOGO.svg" alt="My Accounts" />
-        <p>My Accounts</p>
+        <NuxtLink to="/404">
+          <img src="../public/icons/iconDashboard/Wallet LOGO.svg" alt="My Accounts" />
+          <p>My Accounts</p>
+        </NuxtLink>
       </div>
       <div class="button">
         <img src="../public/icons/iconDashboard/Setting LOGO.svg" alt="Settings" />

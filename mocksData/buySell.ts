@@ -5,6 +5,11 @@ import USD from '@/public/pageBuySell/USD.svg';
 
 export const buySell = [
   { 
+    symbol: 'USD',
+    price: '4,239',
+    icon: USD,
+  },
+  { 
     symbol: 'CAD',
     price: '92',
     icon: CAD,

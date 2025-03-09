@@ -1,7 +1,9 @@
 <template>
   <div class="exchange-container">
     <div class="exchange-block-nav">
-      <img src="@/public/back-arrow.svg" alt="Back Arrow">
+      <NuxtLink to="/mainDashboard">
+        <img src="@/public/back-arrow.svg" alt="Back Arrow">
+      </NuxtLink>
       <h1 class="exchange-block-nav__text">Exchange</h1>
       <img src="@/public/logo.svg" alt="Logo" />
     </div>
@@ -68,7 +70,7 @@
         <p>Client</p><p class="transaction-details__item--size">Albert Green</p>
       </div>
     </div>
-    <NuxtLink to="/">
+    <NuxtLink to="/exchange-created">
       <MainBtn>Exchange</MainBtn>
     </NuxtLink>
   </div>
@@ -104,6 +106,7 @@
   font-weight: bold;
   letter-spacing: 2.5px;
   text-align: center;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 
   &__desc {
     font-size: 14px;

@@ -3,10 +3,12 @@
     <div class="crypto-scroll__header">
       <h1>{{ route.query.action }} {{ activeCurrency?.name }}</h1>
     </div>
-    <div class="crypto-scroll__bar" style="color: #4A4A4A;" :class="{ 'crypto-scroll__bar--reverse': changeBuySell}">
+    <div class="crypto-scroll__bar" :class="{ 'crypto-scroll__bar--reverse': changeBuySell}">
       <div>
-        <h3>Crypto Currency Amount</h3>
-        <input type="number">
+        <h3 class="crypto-scroll__desc">Crypto Currency Amount</h3>
+        <div class="crypto-scroll__input">
+          <input placeholder="1.5459" class="crypto-scroll__input--number" v-model="inputNumberCurr" type="number">
+        </div>
         <div class="crypto-scroll__bar-curr">
           <ul class="crypto-scroll__list">
             <li
@@ -25,7 +27,10 @@
         </div>
       </div>
       <div>
-        <h3>Currency Amount</h3>
+        <h3 class="crypto-scroll__desc">Currency Amount</h3>
+        <div class="crypto-scroll__input">
+          <input placeholder="8,989.79" class="crypto-scroll__input--number" v-model="inputNumberCurr" type="number">
+        </div>
         <div class="crypto-scroll__bar-lang">
           <ul class="crypto-scroll__list">
             <li
@@ -44,25 +49,31 @@
         </div>
       </div>
     </div>
-    
-    <div v-if="activeCurrency" class="crypto-description">
-      <div class="crypto-description__name">{{ activeCurrency.name }} Price</div>
-      <div class="crypto-description__price"><span class="crypto-description__price--bucks">$</span>{{ activeCurrency.price }}</div>
-      <div class="crypto-description__body">
-        <div class="crypto-description__wallet">
-          Your {{ activeCurrency.symbol }} Wallet
-        </div>
-        <div class="crypto-description__priceCurr">
-          5.139799 {{ activeCurrency.symbol }}
-        </div>
-        <div class="crypto-description__priceUsd">
-          =32.423.46 USD
-        </div>
-      </div>
-    </div>
   </div>
   <div>
-    <img class="crypto-nav__img" :src="chart" alt="">
+    <h3 style=" font-size: 17px ;padding-left: 20px; padding-top: 15px; letter-spacing: 1.5px;">Payment</h3>
+    <div class="crypto-body">
+      <div class="crypto-body__cardLeft crypto-body__cardLittle" style=""></div>
+      <div class="crypto-body__card">
+        <div class="card-block">
+          <img class="card-block__img" src="@/public/pageBuySell/iconVisa.svg" alt="Visa">
+          <div>
+            <h3 class="card-block__text">Valid thru</h3>
+            <p class="card-block__date">08/2022</p>
+          </div>
+        </div>
+        <p style="letter-spacing: 3px; font-size: 14px;">3979 **** **** **** 1618</p>
+      </div>
+      <div class="crypto-body__cardRight crypto-body__cardLittle"></div>
+    </div>
+    <div class="totalAmount-block">
+      <p class="totalAmount-block__pay">Total Amount to Pay:</p>
+      <p class="totalAmount-block__">8,989.79 {{ CurrActiveAmount?.symbol }}</p>
+    </div>
+    <div class="totalAmount-block totalAmount-block--right">
+      <p class="totalAmount-block__pay">Your Balance After:</p>
+      <p>{{ activeCurrency?.price }} {{ activeCurrency?.symbol }}</p>
+    </div>
     <div class="crypto-nav">
       <NuxtLink style="width: 100%;" to="/mainDashboard">
         <MainBtn @click="onclickBuy" class="crypto-nav__buy">{{ route.query.action }}</MainBtn>
@@ -75,19 +86,15 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { cryptocurrencies } from '@/mocksData/cryptocurrencies'
-import chart from "@/public/currencyPrice/chart.svg"
-import { buySell } from '@/mocksData/buySell';
+import { buySell } from '@/mocksData/buySell'
 
 const route = useRoute()
 
 const activeCurrency = ref(null)
 const changeBuySell = ref(route.query.action === 'Sell')
-const CurrActiveAmount = ref(null)
 
-const getCurrencyImage = (symbol) => {
-  const currencyData = cryptocurrencies.find(crypto => crypto.symbol === symbol)
-  return currencyData ? currencyData.icon : ''
-}
+const CurrActiveAmount = ref(buySell.find(currency => currency.symbol === 'USD') || null)
+const inputNumberCurr = ref('')
 
 const setActiveCurrency = (symbol) => {
   activeCurrency.value = symbol
@@ -110,23 +117,44 @@ onMounted(() => {
 <style lang="scss" scoped>
 .crypto-scroll {
   background: #F5F7F6;
-  padding: 49px 0 23px 0;
+  padding: 49px 0 55px 0;
+  margin-bottom: 100px;
 
   &__header {
     text-align: center;
     margin-bottom: 1rem;
     font-size: 17px;
     color: #4A4A4A;
+    letter-spacing: 3px;
   }
 
   &__bar {
     display: flex;
     flex-direction: column;
     max-height: 200px;
+    padding: 0 20px;
     border-radius: 8px;
+    color: #4A4A4A;
 
     &--reverse {
       flex-direction: column-reverse;
+    }
+  }
+
+  &__desc {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+  &__input {
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    margin: 17px 0 0 0 ;
+    padding: 10px 204px 22px 20px;
+    font-size: 20px;
+
+    &--number::placeholder {
+      letter-spacing: 3px;
+      color: #1D2A45;
     }
   }
 
@@ -146,7 +174,7 @@ onMounted(() => {
   &__list {
     display: flex;
     list-style-type: none;
-    padding: 20px;
+    padding: 20px 0 20px 0;
     margin: 0;
     gap: 20px;
 
@@ -158,7 +186,6 @@ onMounted(() => {
   &__item {
     width: 87px;
     height: 50px;
-    // padding: 10px 10px 20px 6px;
     border-radius: 6px;
     background: #fbfbfb;
     transition: background 0.3s;
@@ -223,6 +250,61 @@ onMounted(() => {
     font-size: 10px;
     margin-left: 63px;
     color: #9A9C9A;
+  }
+}
+
+.crypto-body {
+  display: flex;
+
+  &__cardLittle {
+    margin-top: 48px;
+    height: 70px;
+    width: 51px;
+    background-color: rgba(74, 74, 74, 0.4);
+  }
+  
+  &__cardLeft {
+    border-radius: 0 6px 6px 0;
+  }
+  &__card {
+    padding: 7px 19px 22px 19.5px;
+    margin: 25px 20px 16px 20px;
+    background-color: #475958;
+    border-radius: 6px;
+  }
+  &__cardRight {
+    border-radius: 6px 0 0 6px;
+  }
+}
+
+.card-block {
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  padding: 11px 0 24px 0;
+  max-width: 261px;
+
+  &__text {
+    letter-spacing: 3px;
+    font-size: 10px;
+    padding-left: 93px;
+  }
+  &__date {
+    margin-left: 118px;
+    letter-spacing: 1.5px;
+    font-size: 10px;
+  }
+}
+
+.totalAmount-block {
+  padding-left: 18px;
+
+  &--right {
+    margin: 11px 0 28px 263px;
+  }
+  
+  &__pay {
+    font-size: 12px;
   }
 }
 
